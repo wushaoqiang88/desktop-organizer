@@ -53,7 +53,7 @@
     "快捷方式": {
       "extensions": [".lnk", ".url"],
       "folder_name": "🔗 快捷方式",
-      "enabled": false
+      "enabled": true
     }
   },
   "custom_rules": [

@@ -32,17 +32,24 @@ jobs:
       - name: Build Windows Release
         run: flutter build windows --release
 
-      - name: Create NSIS installer
+      - name: Install NSIS
+        run: choco install nsis -y
+        shell: pwsh
+
+      - name: Create main app installer
         run: |
-          choco install nsis -y
+          & "C:\Program Files (x86)\NSIS\makensis.exe" installer.nsi
+        shell: pwsh
+
+      - name: Create standalone organizer installer
+        run: |
           cd auto_organize
           & "C:\Program Files (x86)\NSIS\makensis.exe" installer.nsi
         shell: pwsh
 
       - name: Prepare release artifacts
         run: |
-          # 主程序
-          Compress-Archive -Path "build\windows\x64\runner\Release\*" -DestinationPath "DeskTidy_Windows_x64.zip"
+          # 主程序安装包已由 NSIS 生成: DesktopOrganizer_Setup_v1.2.12.exe
           # 独立归类工具安装包
           Copy-Item "auto_organize\DeskTidy_AutoOrganize_Setup_v1.0.0.exe" -Destination "." -ErrorAction SilentlyContinue
         shell: pwsh
@@ -50,9 +57,9 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: DeskTidy-Windows-x64
+          name: DesktopOrganizer-Windows-x64
           path: |
-            DeskTidy_Windows_x64.zip
+            DesktopOrganizer_Setup_v1.2.12.exe
             DeskTidy_AutoOrganize_Setup_v1.0.0.exe
           retention-days: 30
 
@@ -61,6 +68,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            DeskTidy_Windows_x64.zip
+            DesktopOrganizer_Setup_v1.2.12.exe
             DeskTidy_AutoOrganize_Setup_v1.0.0.exe
           generate_release_notes: true

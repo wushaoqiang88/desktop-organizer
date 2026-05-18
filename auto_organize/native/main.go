@@ -20,14 +20,14 @@ import (
 // ═══════════════════════════════════════════════════════════════
 
 type Config struct {
-	DesktopPath         string                `json:"desktop_path"`
-	TargetBasePath      string                `json:"target_base_path"`
-	Categories          map[string]Category   `json:"categories"`
-	CustomRules         []CustomRule          `json:"custom_rules"`
-	IgnorePatterns      []string              `json:"ignore_patterns"`
-	ScanIntervalMinutes int                   `json:"scan_interval_minutes"`
-	WatchRealtime       bool                  `json:"watch_realtime"`
-	MoveDelaySeconds    int                   `json:"move_delay_seconds"`
+	DesktopPath         string              `json:"desktop_path"`
+	TargetBasePath      string              `json:"target_base_path"`
+	Categories          map[string]Category `json:"categories"`
+	CustomRules         []CustomRule        `json:"custom_rules"`
+	IgnorePatterns      []string            `json:"ignore_patterns"`
+	ScanIntervalMinutes int                 `json:"scan_interval_minutes"`
+	WatchRealtime       bool                `json:"watch_realtime"`
+	MoveDelaySeconds    int                 `json:"move_delay_seconds"`
 }
 
 type Category struct {
@@ -210,12 +210,17 @@ func defaultConfig() Config {
 				FolderName: "💻 代码",
 				Enabled:    true,
 			},
+			"快捷方式": {
+				Extensions: []string{".lnk", ".url"},
+				FolderName: "🔗 快捷方式",
+				Enabled:    true,
+			},
 		},
 		CustomRules: []CustomRule{
 			{Name: "微信文件", MatchPattern: "WeChat*", TargetFolder: "📱 微信文件", Enabled: true},
 			{Name: "截图", MatchPattern: "Screenshot*", TargetFolder: "📸 截图", Enabled: true},
 		},
-		IgnorePatterns:      []string{"desktop.ini", "*.lnk", "*.tmp", "~$*"},
+		IgnorePatterns:      []string{"desktop.ini", "*.tmp", "~$*"},
 		ScanIntervalMinutes: 5,
 		WatchRealtime:       true,
 		MoveDelaySeconds:    3,
