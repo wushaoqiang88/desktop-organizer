@@ -217,6 +217,18 @@ extension _DeskTidyHomeUiBuilders on _DeskTidyHomePageState {
             _setState(() => _beautifyDesktopIcons = v);
             AppPreferences.saveBeautifyDesktopIcons(v);
           },
+          autoOrganizeEnabled: _autoOrganizeEnabled,
+          onAutoOrganizeEnabledChanged: (v) {
+            _setState(() => _autoOrganizeEnabled = v);
+            if (v) {
+              AutoOrganizeService.instance.start();
+            } else {
+              AutoOrganizeService.instance.stop();
+            }
+          },
+          onAutoOrganizeSettings: () {
+            _showAutoOrganizeSettingsDialog(context);
+          },
         );
       default:
         return _buildApplicationContent();

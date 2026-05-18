@@ -1,0 +1,73 @@
+{
+  "enabled": true,
+  "desktop_path": "",
+  "target_base_path": "",
+  "scan_interval_minutes": 5,
+  "watch_realtime": true,
+  "move_delay_seconds": 3,
+  "log_file": "auto_organize.log",
+  "max_log_size_mb": 5,
+  "notify_on_move": true,
+  "ignore_patterns": [
+    "desktop.ini",
+    "thumbs.db",
+    "*.tmp",
+    "~$*"
+  ],
+  "categories": {
+    "文档": {
+      "extensions": [".doc", ".docx", ".pdf", ".txt", ".rtf", ".odt", ".xls", ".xlsx", ".csv", ".ppt", ".pptx", ".md", ".epub"],
+      "folder_name": "📄 文档",
+      "enabled": true
+    },
+    "图片": {
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp", ".svg", ".ico", ".tiff", ".psd", ".raw", ".heic"],
+      "folder_name": "🖼️ 图片",
+      "enabled": true
+    },
+    "视频": {
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".m4v", ".ts"],
+      "folder_name": "🎬 视频",
+      "enabled": true
+    },
+    "音乐": {
+      "extensions": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".ape"],
+      "folder_name": "🎵 音乐",
+      "enabled": true
+    },
+    "压缩包": {
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".iso"],
+      "folder_name": "📦 压缩包",
+      "enabled": true
+    },
+    "安装包": {
+      "extensions": [".exe", ".msi", ".dmg", ".deb", ".rpm", ".appx", ".msix"],
+      "folder_name": "💿 安装包",
+      "enabled": true
+    },
+    "代码": {
+      "extensions": [".py", ".js", ".ts", ".java", ".cpp", ".c", ".h", ".cs", ".go", ".rs", ".rb", ".php", ".html", ".css", ".json", ".xml", ".yaml", ".yml", ".sql", ".sh", ".bat", ".ps1"],
+      "folder_name": "💻 代码",
+      "enabled": true
+    },
+    "快捷方式": {
+      "extensions": [".lnk", ".url"],
+      "folder_name": "🔗 快捷方式",
+      "enabled": false
+    }
+  },
+  "custom_rules": [
+    {
+      "name": "微信文件",
+      "match_pattern": "WeChat*",
+      "target_folder": "📱 微信文件",
+      "enabled": true
+    },
+    {
+      "name": "截图",
+      "match_pattern": "Screenshot*",
+      "target_folder": "🖼️ 图片/截图",
+      "enabled": true
+    }
+  ]
+}

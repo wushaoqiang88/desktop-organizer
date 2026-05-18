@@ -45,6 +45,7 @@ class _DeskTidyHomePageState extends State<DeskTidyHomePage>
   bool _beautifyDesktopIcons = false;
   IconBeautifyStyle _beautifyStyle = IconBeautifyStyle.cute;
   bool _enableDesktopBoxes = false;
+  bool _autoOrganizeEnabled = false;
   bool _iconIsolatesEnabled = true;
   bool _showRecycleBin = true;
   bool _showThisPC = true;

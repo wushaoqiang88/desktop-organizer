@@ -285,6 +285,14 @@ extension _DeskTidyHomeBootstrap on _DeskTidyHomePageState {
       enabled: _enableDesktopBoxes,
       desktopPath: _desktopPath,
     );
+
+    // 初始化自动归类服务
+    await AutoOrganizeService.instance.init();
+    if (mounted) {
+      _setState(() {
+        _autoOrganizeEnabled = AutoOrganizeService.instance.config.enabled;
+      });
+    }
   }
 
   Future<void> _initTray() async {

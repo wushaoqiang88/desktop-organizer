@@ -45,6 +45,10 @@ class SettingsPage extends StatefulWidget {
   final ValueChanged<bool> onShowUserFilesChanged;
   final ValueChanged<bool> onIconIsolatesChanged;
 
+  final bool autoOrganizeEnabled;
+  final ValueChanged<bool> onAutoOrganizeEnabledChanged;
+  final VoidCallback? onAutoOrganizeSettings;
+
   const SettingsPage({
     super.key,
     required this.transparency,
@@ -66,6 +70,7 @@ class SettingsPage extends StatefulWidget {
     required this.showNetwork,
     required this.showUserFiles,
     required this.iconIsolatesEnabled,
+    this.autoOrganizeEnabled = false,
     required this.onTransparencyChanged,
     required this.onFrostStrengthChanged,
     required this.onIconSizeChanged,
@@ -86,6 +91,8 @@ class SettingsPage extends StatefulWidget {
     required this.onShowNetworkChanged,
     required this.onShowUserFilesChanged,
     required this.onIconIsolatesChanged,
+    required this.onAutoOrganizeEnabledChanged,
+    this.onAutoOrganizeSettings,
   });
 
   @override

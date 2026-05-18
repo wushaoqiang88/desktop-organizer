@@ -314,6 +314,20 @@ extension _SettingsPageUi on _SettingsPageState {
               title: const Text('启用桌面收纳盒'),
               description: const Text('将桌面的文件和文件夹分类显示在独立的浮动窗口中。'),
             ),
+            SettingsTile.switchTile(
+              onToggle: widget.onAutoOrganizeEnabledChanged,
+              initialValue: widget.autoOrganizeEnabled,
+              leading: const Icon(Icons.auto_fix_high),
+              title: const Text('自动归类桌面文件'),
+              description: const Text('监控桌面，新文件按后缀自动移动到分类文件夹。'),
+            ),
+            if (widget.autoOrganizeEnabled)
+              SettingsTile.navigation(
+                leading: const Icon(Icons.rule_folder),
+                title: const Text('归类规则设置'),
+                description: const Text('自定义分类、后缀、文件名规则'),
+                onPressed: (_) => widget.onAutoOrganizeSettings?.call(),
+              ),
           ],
         ),
 
