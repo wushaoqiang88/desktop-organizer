@@ -10,7 +10,7 @@
 !define APP_VERSION "1.2.12"
 !define APP_PUBLISHER "DeskTidy"
 !define APP_EXE "desk_tidy.exe"
-!define BUILD_DIR "..\build\windows\x64\runner\Release"
+!define BUILD_DIR "build\windows\x64\runner\Release"
 
 Name "${APP_NAME} v${APP_VERSION}"
 OutFile "DesktopOrganizer_Setup_v${APP_VERSION}.exe"
